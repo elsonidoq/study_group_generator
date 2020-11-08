@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 gunicorn = "*"
 flask = "*"
-cryptography = "2.7"
+cryptography = "*"
 
 [dev-packages]
 
