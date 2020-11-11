@@ -8,13 +8,32 @@
 	    <form action="" method="post" novalidate>
 		<p>
 		    tu email<br>
-		    <input type='text' name='email'></input><br>
+		    <input style='width: 250px' type='text' name='email'></input><br>
 		</p>
 		<p>
 			<input type='submit'/> <br>
 		</p>
 		<p>
-		{{ response }}
+		{% if failed %}
+			No encontre tu mail, si te habias registrado escribime 
+		{% endif %}
+
+		{% if group %}
+			<p> Tu grupo es </p>
+			<table class='table'>
+				<tr>
+					<th> mail </th> <th> coding skills </th> <th> machine learning skills </th>
+				</tr>
+
+				{% for person in group %}
+					<tr>
+						<td> {{ person['Username'] }} </td> 
+						<td> {{ person['coding_skills'] }} </td> 
+						<td> {{ person['ml_skills'] }} </td>
+					</tr>
+				{% endfor %}
+			</table>
+		{% endif %}
 		</p>
 	    </form>
  </div>
