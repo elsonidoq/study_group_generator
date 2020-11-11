@@ -1,7 +1,7 @@
 import os
 import pickle as pkl
 from flask import render_template
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_from_directory
 from flask import request
 import encrypt
 
@@ -20,6 +20,11 @@ def index():
         failed = False
 
     return render_template('index.html', group=group, failed=failed)
+
+@app.route('/static/<path:path>')
+def send_static(path):
+    return send_from_directory('static', path)
+
 
 class Groups:
     def __init__(self):
